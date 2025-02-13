@@ -14,4 +14,10 @@ Rails.application.routes.draw do
 
   get("/square_root/results", {:controller => "omnicalc", :action => "square_root_results"})
 
+  # payment calculator
+  get("/payment/new", {:controller => "omnicalc", :action => "payment_calc"})
+
+  get("/payment/results", {:controller => "omnicalc", :action => "payment_results"})
+    
+
 end

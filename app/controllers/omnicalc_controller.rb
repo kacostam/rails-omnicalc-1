@@ -20,5 +20,25 @@ class OmnicalcController < ApplicationController
     @the_result = @the_num ** 0.5
     render({:template => "calc_views/square_root_results"})
   end
-  
+
+  def payment_calc
+    render({:template => "calc_views/new_payment_calc"})
+  end
+
+  def payment_results
+    @the_apr = params.fetch("user_apr").to_f
+    @num_periods = params.fetch("user_years").to_f
+    @the_principal = params.fetch("user_pv").to_f
+
+
+    @r = @the_apr / 100 / 12 
+    @n = @num_periods*12
+
+    @numerator = @r * (1 + @r) ** @n
+    @denominator = (1 + @r) ** @n - 1
+
+    @the_result =  @the_principal * @numerator / @denominator
+    render({:template => "calc_views/payment_results"})
+  end
+
 end
