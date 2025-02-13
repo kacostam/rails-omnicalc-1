@@ -41,4 +41,16 @@ class OmnicalcController < ApplicationController
     render({:template => "calc_views/payment_results"})
   end
 
+  def random_calc
+    render({:template => "calc_views/new_random_calc"})
+  end
+
+  def random_results
+    @min = params.fetch("user_min").to_f
+    @max = params.fetch("user_max").to_f
+    @the_result = rand(@min..@max)
+    
+    render({:template => "calc_views/random_results"})
+  end
+
 end

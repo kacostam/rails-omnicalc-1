@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get("/payment/new", {:controller => "omnicalc", :action => "payment_calc"})
 
   get("/payment/results", {:controller => "omnicalc", :action => "payment_results"})
-    
+  
+  # random number picker
+  get("/random/new", {:controller => "omnicalc", :action => "random_calc"})
+
+  get("/random/results", {:controller => "omnicalc", :action => "random_results"})
 
 end
